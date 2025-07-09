@@ -58,8 +58,8 @@ def serve(path):
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)
 
+# For Gunicorn production server
+# if __name__ != '__main__':
+#     gunicorn_app = app
 
-
-# Vercel specific export
-app = app
 

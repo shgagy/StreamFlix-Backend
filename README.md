@@ -302,11 +302,12 @@ The frontend uses a component-based architecture with reusable UI components:
 
 ### Manual Deployment
 
-#### Backend Deployment (Railway/Render)
-1. Create a new service on Railway or Render
-2. Connect your GitHub repository
-3. Set environment variables
-4. Deploy the `streaming-backend` directory
+#### Backend Deployment (DigitalOcean App Platform)
+1. Create a new App on DigitalOcean App Platform.
+2. Connect your GitHub repository.
+3. Configure the build command (e.g., `pip install -r requirements.txt && python seed_data.py`) and run command (e.g., `gunicorn --bind 0.0.0.0:$PORT src.main:app`).
+4. Set environment variables, including `DATABASE_URL` and `SECRET_KEY`.
+5. Deploy the `streaming-backend` directory.
 
 #### Frontend Deployment (Vercel/Netlify)
 1. Build the frontend
