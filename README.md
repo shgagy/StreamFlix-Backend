@@ -302,10 +302,10 @@ The frontend uses a component-based architecture with reusable UI components:
 
 ### Manual Deployment
 
-#### Backend Deployment (Railway)
-1. Create a new project on Railway.
+#### Backend Deployment (Render)
+1. Create a new Web Service on Render.
 2. Connect your GitHub repository.
-3. Railway will automatically detect the Flask application. Ensure the build command is `pip install -r requirements.txt` and the start command is `gunicorn --bind 0.0.0.0:$PORT src.main:app`.
+3. Render will automatically detect the Flask application. Ensure the build command is `pip install -r requirements.txt` and the start command is `gunicorn --bind 0.0.0.0:$PORT src.main:app`.
 4. Set environment variables, including `DATABASE_URL`, `SECRET_KEY`, and `JWT_SECRET_KEY`.
 5. Deploy the `streaming-backend` directory.
 
