@@ -1,0 +1,13 @@
+streaming-backend/venv/
+streaming-backend/__pycache__/
+streaming-backend/*.sqlite
+streaming-backend/uploads/
+
+streaming-frontend/node_modules/
+streaming-frontend/dist/
+
+.env
+.DS_Store
+*.log
+
+
