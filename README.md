@@ -302,11 +302,11 @@ The frontend uses a component-based architecture with reusable UI components:
 
 ### Manual Deployment
 
-#### Backend Deployment (DigitalOcean App Platform)
-1. Create a new App on DigitalOcean App Platform.
+#### Backend Deployment (Railway)
+1. Create a new project on Railway.
 2. Connect your GitHub repository.
-3. Configure the build command (e.g., `pip install -r requirements.txt && python seed_data.py`) and run command (e.g., `gunicorn --bind 0.0.0.0:$PORT src.main:app`).
-4. Set environment variables, including `DATABASE_URL` and `SECRET_KEY`.
+3. Railway will automatically detect the Flask application. Ensure the build command is `pip install -r requirements.txt` and the start command is `gunicorn --bind 0.0.0.0:$PORT src.main:app`.
+4. Set environment variables, including `DATABASE_URL`, `SECRET_KEY`, and `JWT_SECRET_KEY`.
 5. Deploy the `streaming-backend` directory.
 
 #### Frontend Deployment (Vercel/Netlify)
