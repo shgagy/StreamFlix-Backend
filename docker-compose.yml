@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./streaming-backend
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - SECRET_KEY=your-secret-key-change-in-production
+      - JWT_SECRET_KEY=your-jwt-secret-change-in-production
+      - DATABASE_URL=sqlite:///streaming.db
+      - CORS_ORIGINS=http://localhost:5174,http://localhost:3000
+    volumes:
+      - ./streaming-backend/data:/app/data
+    networks:
+      - streaming-network
+
+  frontend:
+    build:
+      context: ./streaming-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:5001/api
+    depends_on:
+      - backend
+    networks:
+      - streaming-network
+
+networks:
+  streaming-network:
+    driver: bridge
+
+volumes:
+  backend-data:
+
