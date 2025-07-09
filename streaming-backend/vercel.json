@@ -9,19 +9,7 @@
   ],
   "routes": [
     {
-      "src": "/api/auth/(.*)",
-      "dest": "src/main.py"
-    },
-    {
-      "src": "/api/content/(.*)",
-      "dest": "src/main.py"
-    },
-    {
-      "src": "/api/admin/(.*)",
-      "dest": "src/main.py"
-    },
-    {
-      "src": "/api/(.*)",
+      "src": "/(.*)",
       "dest": "src/main.py"
     }
   ]
