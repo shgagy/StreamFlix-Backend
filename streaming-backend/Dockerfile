@@ -16,11 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Create data directory for SQLite
-RUN mkdir -p data
-
-# Initialize database with sample data
-RUN python seed_data.py
+# Create data directory for SQLite (if still needed for local development, otherwise remove)
+# RUN mkdir -p data
 
 # Expose port
 EXPOSE 5001
@@ -29,6 +26,7 @@ EXPOSE 5001
 ENV FLASK_APP=src/main.py
 ENV FLASK_ENV=production
 
-# Run the application
-CMD ["python", "src/main.py"]
+# Run the application with Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "src.main:app"]
+
 
