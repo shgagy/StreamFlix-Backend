@@ -10,6 +10,11 @@ from src.models.interactions import Rating, Comment, WatchHistory, Favorite
 from datetime import datetime, date
 
 def seed_database():
+    # Configure database for seeding, prioritizing DATABASE_URL
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "sqlite:///database/app.db")
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.init_app(app)
+
     with app.app_context():
         # Clear existing data
         db.drop_all()
@@ -333,4 +338,5 @@ def seed_database():
 
 if __name__ == '__main__':
     seed_database()
+
 
